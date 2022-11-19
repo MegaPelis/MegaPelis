@@ -1,4 +1,4 @@
-package com.megapelis.api.model.request.body.movieserie;
+package com.megapelis.api.model.dto.request.body.movieserie;
 
 import java.io.Serializable;
 
