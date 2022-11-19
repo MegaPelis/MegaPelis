@@ -1,28 +1,19 @@
-package com.megapelis.api.model.dto.request.body.Business;
+package com.megapelis.api.model.dto.request.body.business;
+
 /**
- * Clase {@link UpdateBusinessRQ}
+ * Clase {@link CreateBusinessRQ}
  * @author yadir.garcia.
  */
-public class UpdateBusinessRQ {
-    private String id;
+public class CreateBusinessRQ {
     private String name;
     private String description;
 
-    public UpdateBusinessRQ() {
+    public CreateBusinessRQ() {
     }
 
-    public UpdateBusinessRQ(String id, String name, String description) {
-        this.id = id;
+    public CreateBusinessRQ(String name, String description) {
         this.name = name;
         this.description = description;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {

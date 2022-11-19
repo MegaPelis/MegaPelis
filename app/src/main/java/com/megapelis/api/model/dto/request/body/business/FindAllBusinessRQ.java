@@ -1,4 +1,4 @@
-package com.megapelis.api.model.dto.request.body.Business;
+package com.megapelis.api.model.dto.request.body.business;
 /**
  * Clase {@link FindAllBusinessRQ}
  * @author yadir.garcia.

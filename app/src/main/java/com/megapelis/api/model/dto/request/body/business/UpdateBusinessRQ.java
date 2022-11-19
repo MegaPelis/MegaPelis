@@ -1,21 +1,28 @@
-package com.megapelis.api.model.dto.request.body.Business;
-
-import com.megapelis.api.model.dto.request.body.image.CreateImageRQ;
-
+package com.megapelis.api.model.dto.request.body.business;
 /**
- * Clase {@link CreateBusinessRQ}
+ * Clase {@link UpdateBusinessRQ}
  * @author yadir.garcia.
  */
-public class CreateBusinessRQ {
+public class UpdateBusinessRQ {
+    private String id;
     private String name;
     private String description;
 
-    public CreateBusinessRQ() {
+    public UpdateBusinessRQ() {
     }
 
-    public CreateBusinessRQ(String name, String description) {
+    public UpdateBusinessRQ(String id, String name, String description) {
+        this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
