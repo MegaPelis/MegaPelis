@@ -1,4 +1,4 @@
-package com.megapelis.api.model.request.body.tmdb.movie;
+package com.megapelis.api.model.dto.request.body.tmdb.movie;
 
 import java.io.Serializable;
 
