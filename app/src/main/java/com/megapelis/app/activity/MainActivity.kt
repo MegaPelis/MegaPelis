@@ -1,7 +1,8 @@
-package com.megapelis
+package com.megapelis.app.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.megapelis.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
