@@ -1,4 +1,4 @@
-package com.megapelis.api.model.request.body.image;
+package com.megapelis.api.model.dto.request.body.image;
 /**
  * Clase {@link FindAllImageRQ}
  * @author yadir.garcia.

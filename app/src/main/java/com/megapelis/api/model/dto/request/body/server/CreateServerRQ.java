@@ -1,30 +1,18 @@
-package com.megapelis.api.model.request.body.server;
+package com.megapelis.api.model.dto.request.body.server;
 
 /**
- * Clase {@link UpdateServerRQ}
- *
+ * Clase {@link CreateServerRQ}
  * @author yadir.garcia.
  */
-public class UpdateServerRQ {
-    private String id;
+public class CreateServerRQ {
     private String name;
     private String imageBase64;
-
-    public UpdateServerRQ() {
+    public CreateServerRQ() {
     }
 
-    public UpdateServerRQ(String id, String name, String imageBase64) {
-        this.id = id;
+    public CreateServerRQ(String name, String imageBase64) {
         this.name = name;
         this.imageBase64 = imageBase64;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {

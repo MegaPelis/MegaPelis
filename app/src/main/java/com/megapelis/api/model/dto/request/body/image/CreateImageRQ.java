@@ -1,6 +1,5 @@
-package com.megapelis.api.model.request.body.image;
+package com.megapelis.api.model.dto.request.body.image;
 
-import com.megapelis.api.model.request.body.tmdb.serie.FindAllByPopularSerieRQ;
 
 /**
  * Clase {@link CreateImageRQ}

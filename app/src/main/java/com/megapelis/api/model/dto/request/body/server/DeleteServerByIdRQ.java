@@ -1,15 +1,17 @@
-package com.megapelis.api.model.request.body.image;
+package com.megapelis.api.model.dto.request.body.server;
+
 /**
- * Clase {@link DeleteImageByIdRQ}
+ * Clase {@link DeleteServerByIdRQ}
+ *
  * @author yadir.garcia.
  */
-public class DeleteImageByIdRQ {
+public class DeleteServerByIdRQ {
     private String id;
 
-    public DeleteImageByIdRQ() {
+    public DeleteServerByIdRQ() {
     }
 
-    public DeleteImageByIdRQ(String id) {
+    public DeleteServerByIdRQ(String id) {
         this.id = id;
     }
 

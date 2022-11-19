@@ -1,4 +1,4 @@
-package com.megapelis.api.model.request.body.server;
+package com.megapelis.api.model.dto.request.body.server;
 /**
  * Clase {@link FindAllServerRQ}
  * @author yadir.garcia.
