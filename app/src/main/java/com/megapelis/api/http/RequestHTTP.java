@@ -3,6 +3,7 @@ package com.megapelis.api.http;
 import com.google.gson.Gson;
 import com.megapelis.api.model.dto.request.generic.Request;
 import com.megapelis.api.model.dto.response.generic.Response;
+import com.megapelis.api.model.enums.APIStatusEnum;
 import com.megapelis.api.model.http.HTTP;
 import com.megapelis.util.APIConstant;
 import com.megapelis.util.MegaPelisException;
@@ -16,10 +17,30 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-
+/**
+ * Clase {@link RequestHTTP}
+ * @author sergio.barrios.
+ */
 public class RequestHTTP<T> {
 
-    public Response execute(HTTP<T> httpRequest){
+    /**
+     * Metodo que realiza una peticion post.
+     * @param http
+     * @return {@link Response}
+     */
+    public Response post(HTTP<T> http){
+        http.build(Boolean.TRUE.booleanValue(), Boolean.TRUE.booleanValue(),
+                APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_VALUE, APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_VALUE,
+                APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_POST);
+        return execute(http);
+    }
+
+    /**
+     * Metodo que permite realizar la petición al api.
+     * @param httpRequest
+     * @return {@link Response}
+     */
+    private Response execute(HTTP<T> httpRequest){
         Response response = null;
         HttpURLConnection httpURLConnection;
         String responseString;
@@ -33,13 +54,6 @@ public class RequestHTTP<T> {
             e.printStackTrace();
         }
         return response;
-    }
-
-    public Response post(HTTP<T> http){
-        http.build(Boolean.TRUE.booleanValue(), Boolean.TRUE.booleanValue(),
-                APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_VALUE, APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_VALUE,
-                APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_POST);
-        return execute(http);
     }
 
     /**
@@ -60,11 +74,24 @@ public class RequestHTTP<T> {
         return httpURLConnection;
     }
 
+    /**
+     * Metodo que convierte el request a json.
+     * @param request
+     * @return {@link String}
+     */
     private String buildRequest(Request request){
         Gson gson = new Gson();
         return gson.toJson(request);
     }
 
+    /**
+     * Metodo que formatea la respuesta del api.
+     * @param httpRequest
+     * @param httpURLConnection
+     * @return {@link String}
+     * @throws IOException
+     * @throws MegaPelisException
+     */
     private String response(HTTP<T> httpRequest, HttpURLConnection httpURLConnection) throws IOException, MegaPelisException {
         OutputStream outputStream = httpURLConnection.getOutputStream();
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, APIConstant.STRING_CMM_UTF_8));
@@ -84,7 +111,7 @@ public class RequestHTTP<T> {
             br.close();
             return sb.toString();
         } else {
-            throw new MegaPelisException();
+            throw new MegaPelisException(APIStatusEnum.ERROR);
         }
     }
 }
