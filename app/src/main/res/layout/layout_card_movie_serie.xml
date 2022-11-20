@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_movie_serie"
+    android:id="@+id/card_serie_image"
     android:layout_width="200dp"
     android:layout_height="300dp"
     android:layout_margin="8dp">
@@ -13,24 +13,20 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bgOne"
+        android:background="@color/bg_one"
         android:orientation="horizontal">
+
         <ImageView
+            android:id="@+id/card_movie_serie_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:contentDescription="@string/app_name"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/movie" >
         </ImageView>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/movie" >
-        </ImageView>
+
         <TextView
-            android:id="@+id/card_txt_movie_serie_title"
+            android:id="@+id/card_movie_serie_title"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
@@ -46,9 +42,9 @@
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:text="@string/card_txt_movie_serie_title"
-            android:textColor="@color/cText"
+            android:textColor="@color/c_text"
             android:textSize="30dp"
-            android:background="@color/bgOneRGBA"/>
+            android:background="@color/bg_one_rgba"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,16 +63,15 @@
             android:gravity="right"
             android:orientation="vertical">
             <TextView
-                android:id="@+id/card_txt_movie_serie_points"
+                android:id="@+id/card_movie_serie_points"
                 android:layout_width="40dp"
                 android:layout_height="25dp"
                 android:text="@string/card_txt_movie_serie_points"
-                android:textColor="@color/cText"
-                android:background="@color/bgGreen"
+                android:textColor="@color/c_text"
+                android:background="@color/bg_green"
                 android:textSize="15dp"
                 android:gravity="center"
                 android:textAlignment="center"/>
         </LinearLayout>
     </RelativeLayout>
-
 </com.google.android.material.card.MaterialCardView>
