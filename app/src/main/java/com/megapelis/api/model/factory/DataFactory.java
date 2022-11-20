@@ -1,6 +1,6 @@
 package com.megapelis.api.model.factory;
 
-import com.megapelis.api.model.enums.MegaPelisTypeServiceEnum;
+import com.megapelis.api.model.enums.operation.MegaPelisTypeServiceEnum;
 
 import java.io.Serializable;
 

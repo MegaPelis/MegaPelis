@@ -1,4 +1,4 @@
-package com.megapelis.util;
+package com.megapelis.api.util;
 
 import com.megapelis.api.model.enums.APIStatusEnum;
 
