@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="bgOne">#000000</color>
-    <color name="bgOneRGBA">#54000000</color>
-    <color name="bgTwo">#3D0000</color>
-    <color name="bgThree">#950101</color>
-    <color name="bgFour">#FF0000</color>
-    <color name="bgGreen">#A84CAF50</color>
-    <color name="cText">#FFFFFF</color>
-    <color name="cTextDisabled">#F5F5F5</color>
-    <color name="cTextH1">@color/bgFour</color>
+    <color name="bg_one">#000000</color>
+    <color name="bg_one_rgba">#54000000</color>
+    <color name="bg_two">#3D0000</color>
+    <color name="bg_three">#950101</color>
+    <color name="bg_four">#FF0000</color>
+    <color name="bg_green">#A84CAF50</color>
+    <color name="c_text">#FFFFFF</color>
+    <color name="c_text_disabled">#F5F5F5</color>
+    <color name="c_text_h1">@color/bg_four</color>
 </resources>

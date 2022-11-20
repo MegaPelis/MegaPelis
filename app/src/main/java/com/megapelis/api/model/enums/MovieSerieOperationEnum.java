@@ -1,5 +1,9 @@
 package com.megapelis.api.model.enums;
 
+/**
+ * Clase {@link MovieSerieOperationEnum}
+ * @author sergio.barrios.
+ */
 public enum MovieSerieOperationEnum {
 
     FIND_BY_ID("findById"),
