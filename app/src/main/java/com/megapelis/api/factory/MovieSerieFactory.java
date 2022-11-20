@@ -8,6 +8,7 @@ import com.megapelis.api.handler.impl.movieserie.UpdateMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.UpdateStatusMovieSerieHandler;
 import com.megapelis.api.model.dto.response.generic.Response;
 import com.megapelis.api.model.enums.MovieSerieOperationEnum;
+import com.megapelis.api.model.factory.DataFactory;
 
 /**
  * Clase {@link MovieSerieFactory}
@@ -19,13 +20,12 @@ public class MovieSerieFactory {
 
     /**
      * Fabrica de pelicula y serie que permite ejecutar mediante la operación.
-     * @param object
+     * @param data
      * @param operation
-     * @param clazz
      * @param <T>
      * @return
      */
-    public static <T> Response handler(Object object, MovieSerieOperationEnum operation, Class<T> clazz){
+    public static <T> Response handler(DataFactory<T> data, MovieSerieOperationEnum operation){
         APIController handler;
         switch (operation){
             case FIND_BY_ID:
@@ -48,7 +48,7 @@ public class MovieSerieFactory {
                 break;
         }
         if(null != handler)
-            return handler.execute(object, clazz);
+            return handler.execute(data.getData(), data.getBodyResponse());
         return null;
     }
 }
