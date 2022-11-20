@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.megapelis.R
 
 import com.megapelis.api.factory.MovieSerieFactory
-import com.megapelis.api.model.dto.response.body.movieserie.FindAllMovieSerieRS
-import com.megapelis.api.model.dto.response.generic.Response
-import com.megapelis.api.model.enums.MegaPelisTypeServiceEnum
-import com.megapelis.api.model.enums.MovieSerieOperationEnum
+import com.megapelis.api.model.dto.request.response.body.movieserie.FindAllMovieSerieRS
+import com.megapelis.api.model.dto.request.response.generic.Response
+import com.megapelis.api.model.enums.operation.MegaPelisTypeServiceEnum
+import com.megapelis.api.model.enums.operation.MovieSerieOperationEnum
 import com.megapelis.api.model.factory.DataFactory
 import com.megapelis.app.apdater.CardMovieSerieAdapter
 

@@ -1,4 +1,4 @@
-package com.megapelis.api.model.dto.response.generic;
+package com.megapelis.api.model.dto.request.response.generic;
 
 import java.io.Serializable;
 
