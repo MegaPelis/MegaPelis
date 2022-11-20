@@ -2,7 +2,7 @@ package com.megapelis.api.handler;
 
 import com.megapelis.api.http.RequestHTTP;
 import com.megapelis.api.model.dto.request.generic.Request;
-import com.megapelis.api.model.dto.request.response.generic.Response;
+import com.megapelis.api.model.dto.response.generic.Response;
 import com.megapelis.api.model.factory.DataFactory;
 import com.megapelis.api.model.http.HTTP;
 import com.megapelis.api.model.http.HTTPMock;

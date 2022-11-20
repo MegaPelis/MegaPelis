@@ -9,8 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.megapelis.R
-import com.megapelis.api.model.dto.request.response.body.movieserie.FindAllMovieSerieRS
-import com.megapelis.api.model.dto.request.response.body.movieserie.FindByIdMovieSerieRS
+import com.megapelis.api.model.dto.response.body.movieserie.FindAllMovieSerieRS
+import com.megapelis.api.model.dto.response.body.movieserie.FindByIdMovieSerieRS
 import com.squareup.picasso.Picasso
 
 /**
