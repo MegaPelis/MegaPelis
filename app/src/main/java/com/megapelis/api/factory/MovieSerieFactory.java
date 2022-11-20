@@ -6,7 +6,7 @@ import com.megapelis.api.handler.impl.movieserie.FindByIdMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.SaveMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.UpdateMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.UpdateStatusMovieSerieHandler;
-import com.megapelis.api.model.dto.request.response.generic.Response;
+import com.megapelis.api.model.dto.response.generic.Response;
 import com.megapelis.api.model.enums.operation.MovieSerieOperationEnum;
 import com.megapelis.api.model.factory.DataFactory;
 import com.megapelis.api.util.APICommon;
