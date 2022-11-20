@@ -14,11 +14,13 @@ public class HTTP<T> implements Serializable {
     private String method;
     private Request request;
     private Class<T> response;
+    private HTTPMock httpMock;
 
-    public HTTP(String url, Request request, Class<T> response) {
+    public HTTP(String url, Request request, Class<T> response, HTTPMock mock) {
         this.url = url;
         this.request = request;
         this.response = response;
+        this.httpMock = mock;
     }
 
     public void build(boolean output, boolean input, String contentType, String accept, String method){
@@ -91,5 +93,13 @@ public class HTTP<T> implements Serializable {
 
     public void setResponse(Class<T> response) {
         this.response = response;
+    }
+
+    public HTTPMock getHttpMock() {
+        return httpMock;
+    }
+
+    public void setHttpMock(HTTPMock httpMock) {
+        this.httpMock = httpMock;
     }
 }

@@ -6,9 +6,10 @@ import com.megapelis.api.handler.impl.movieserie.FindByIdMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.SaveMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.UpdateMovieSerieHandler;
 import com.megapelis.api.handler.impl.movieserie.UpdateStatusMovieSerieHandler;
-import com.megapelis.api.model.dto.response.generic.Response;
-import com.megapelis.api.model.enums.MovieSerieOperationEnum;
+import com.megapelis.api.model.dto.request.response.generic.Response;
+import com.megapelis.api.model.enums.operation.MovieSerieOperationEnum;
 import com.megapelis.api.model.factory.DataFactory;
+import com.megapelis.api.util.APICommon;
 
 /**
  * Clase {@link MovieSerieFactory}
@@ -48,7 +49,7 @@ public class MovieSerieFactory {
                 break;
         }
         if(null != handler)
-            return handler.execute(data.getData(), data.getBodyResponse());
-        return null;
+            return handler.execute(data);
+        return APICommon.buildResponse(data.getService().getName(), operation.getName(), data.getData());
     }
 }

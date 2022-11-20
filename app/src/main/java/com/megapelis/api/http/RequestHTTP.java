@@ -1,12 +1,12 @@
 package com.megapelis.api.http;
 
-import com.google.gson.Gson;
-import com.megapelis.api.model.dto.request.generic.Request;
-import com.megapelis.api.model.dto.response.generic.Response;
+import com.megapelis.api.model.dto.request.response.generic.Response;
 import com.megapelis.api.model.enums.APIStatusEnum;
 import com.megapelis.api.model.http.HTTP;
-import com.megapelis.util.APIConstant;
-import com.megapelis.util.MegaPelisException;
+import com.megapelis.api.model.http.HTTPMock;
+import com.megapelis.api.util.APICommon;
+import com.megapelis.api.util.APIConstant;
+import com.megapelis.api.util.MegaPelisException;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -30,7 +30,8 @@ public class RequestHTTP<T> {
      */
     public Response post(HTTP<T> http){
         http.build(Boolean.TRUE.booleanValue(), Boolean.TRUE.booleanValue(),
-                APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_VALUE, APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_VALUE,
+                APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_VALUE,
+                APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_VALUE,
                 APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_POST);
         return execute(http);
     }
@@ -41,17 +42,25 @@ public class RequestHTTP<T> {
      * @return {@link Response}
      */
     private Response execute(HTTP<T> httpRequest){
-        Response response = null;
+        Response response;
         HttpURLConnection httpURLConnection;
         String responseString;
-        Gson gson;
         try {
+            if(null != httpRequest.getHttpMock() &&
+                    httpRequest.getHttpMock().isStatus()){
+                httpRequest.setContentType(null);
+                httpRequest.setRequest(null);
+                httpRequest.setUrl(httpRequest.getHttpMock().url());
+                httpRequest.setMethod(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET);
+            }
             httpURLConnection  = httpURLConnection(httpRequest);
             responseString = response(httpRequest, httpURLConnection);
-            gson = new Gson();
-            response = gson.fromJson(responseString, Response.class);
-        } catch (IOException | MegaPelisException e) {
-            e.printStackTrace();
+            response = APICommon.convertObjectToClass(responseString, Response.class);
+            //if(null != response && null != response.getData())
+                //response.setData(APICommon.convertObjectToClass(response.getData(), httpRequest.getResponse()));
+        } catch (IOException | MegaPelisException exception) {
+            APICommon.output(exception);
+            response = APICommon.buildResponse(httpRequest.getRequest());
         }
         return response;
     }
@@ -67,21 +76,12 @@ public class RequestHTTP<T> {
         HttpURLConnection httpURLConnection  = (HttpURLConnection) url.openConnection();
         httpURLConnection.setDoOutput(httpRequest.isOutput());
         httpURLConnection.setDoInput(httpRequest.isInput());
-        httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_NAME, httpRequest.getContentType());
+        if(null != httpRequest.getContentType())
+            httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_NAME, httpRequest.getContentType());
         httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_NAME, httpRequest.getAccept());
         httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_NAME, httpRequest.getMethod());
-        httpURLConnection.connect();
+        APICommon.output(httpURLConnection);
         return httpURLConnection;
-    }
-
-    /**
-     * Metodo que convierte el request a json.
-     * @param request
-     * @return {@link String}
-     */
-    private String buildRequest(Request request){
-        Gson gson = new Gson();
-        return gson.toJson(request);
     }
 
     /**
@@ -93,17 +93,21 @@ public class RequestHTTP<T> {
      * @throws MegaPelisException
      */
     private String response(HTTP<T> httpRequest, HttpURLConnection httpURLConnection) throws IOException, MegaPelisException {
-        OutputStream outputStream = httpURLConnection.getOutputStream();
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, APIConstant.STRING_CMM_UTF_8));
-        String request = buildRequest(httpRequest.getRequest());
-        writer.write(request);
-        writer.close();
-        outputStream.close();
+        if(null != httpRequest.getRequest() &&
+                APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_POST.equals(httpRequest.getMethod())){
+            OutputStream outputStream = httpURLConnection.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream, APIConstant.STRING_CMM_UTF_8));
+            String request = APICommon.getStringJSON(httpRequest.getRequest());
+            writer.write(request);
+            writer.close();
+            outputStream.close();
+
+        }
         // Se procesa respuesta
-        StringBuilder sb = new StringBuilder();
         int HttpResult = httpURLConnection.getResponseCode();
         if (HttpResult == HttpURLConnection.HTTP_OK) {
             BufferedReader br = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), APIConstant.STRING_CMM_UTF_8));
+            StringBuilder sb = new StringBuilder();
             String line = null;
             while ((line = br.readLine()) != null) {
                 sb.append(line + "\n");

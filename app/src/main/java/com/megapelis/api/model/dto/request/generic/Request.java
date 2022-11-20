@@ -15,6 +15,10 @@ public class Request implements Serializable {
     private List<RequestProperty> properties;
     private Object data;
 
+    public Request(){
+
+    }
+
     public Request(String traceId, String dateTime, String service, String operation, List<RequestProperty> properties, Object data) {
         this.traceId = traceId;
         this.dateTime = dateTime;

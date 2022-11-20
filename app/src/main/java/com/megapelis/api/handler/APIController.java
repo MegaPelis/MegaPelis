@@ -2,8 +2,12 @@ package com.megapelis.api.handler;
 
 import com.megapelis.api.http.RequestHTTP;
 import com.megapelis.api.model.dto.request.generic.Request;
-import com.megapelis.api.model.dto.response.generic.Response;
+import com.megapelis.api.model.dto.request.response.generic.Response;
+import com.megapelis.api.model.factory.DataFactory;
 import com.megapelis.api.model.http.HTTP;
+import com.megapelis.api.model.http.HTTPMock;
+import com.megapelis.api.util.APICommon;
+import com.megapelis.api.util.MegaPelisException;
 
 /**
  * Clase {@link APIController}
@@ -11,27 +15,33 @@ import com.megapelis.api.model.http.HTTP;
  */
 public abstract class APIController<T> {
 
-    private RequestHTTP<T> requestHTTP;
-    private Request request;
+    protected RequestHTTP<T> requestHTTP;
+    protected HTTPMock mock;
+    protected Request request;
+    protected DataFactory<T> dataFactory;
+    protected String operation;
 
-    public APIController(){
+    public APIController(String operation, HTTPMock mock){
+        this.operation = operation;
+        this.mock = mock;
         requestHTTP = new RequestHTTP<>();
     }
 
     /**
      * Metodo que permite realizar la petición
-     * @param object
-     * @param clazz
+     * @param dataFactory
      * @return {@link Response}
      */
-    public Response execute(Object object, Class<T> clazz){
+    public Response execute(DataFactory<T> dataFactory){
         Response response = null;
         try{
-            request = buildRequest(object);
-            HTTP<T> http = buildHttp();
+            this.dataFactory = dataFactory;
+            this.request = buildRequest(dataFactory.getData());
+            HTTP<T> http = APICommon.buildHTTP(this.operation, this.request, this.dataFactory.getBodyResponse(), this.mock);
             response = requestHTTP.post(http);
         }catch (Exception exception){
-
+            APICommon.output(exception);
+            response = APICommon.buildResponse(request);
         }
         return response;
     }
@@ -41,11 +51,5 @@ public abstract class APIController<T> {
      * @param object
      * @return {@link Request}
      */
-    public abstract Request buildRequest(Object object);
-
-    /**
-     * Metodo que permite construir el objeto http.
-     * @return {@link HTTP}
-     */
-    public abstract HTTP<T> buildHttp();
+    public abstract Request buildRequest(Object object) throws MegaPelisException;
 }

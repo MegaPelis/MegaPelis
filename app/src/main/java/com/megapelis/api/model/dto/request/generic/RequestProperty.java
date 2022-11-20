@@ -11,9 +11,7 @@ public class RequestProperty implements Serializable {
     private String name;
     private String value;
 
-    public RequestProperty(){
-
-    }
+    public RequestProperty(){}
 
     public RequestProperty(String name, String value) {
         this.name = name;

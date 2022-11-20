@@ -1,4 +1,4 @@
-package com.megapelis.api.model.enums;
+package com.megapelis.api.model.enums.operation;
 
 /**
  * Clase {@link MovieSerieOperationEnum}
