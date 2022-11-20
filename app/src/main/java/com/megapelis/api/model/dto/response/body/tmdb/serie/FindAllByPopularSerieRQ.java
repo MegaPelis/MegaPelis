@@ -1,4 +1,4 @@
-package com.megapelis.api.model.dto.request.response.body.tmdb.serie;
+package com.megapelis.api.model.dto.response.body.tmdb.serie;
 
 import java.io.Serializable;
 

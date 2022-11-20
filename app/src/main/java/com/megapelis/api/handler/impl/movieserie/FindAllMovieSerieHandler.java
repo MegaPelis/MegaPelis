@@ -3,7 +3,7 @@ package com.megapelis.api.handler.impl.movieserie;
 import com.megapelis.api.handler.APIController;
 import com.megapelis.api.model.dto.request.generic.Request;
 import com.megapelis.api.model.dto.request.generic.RequestProperty;
-import com.megapelis.api.model.dto.request.response.body.movieserie.FindAllMovieSerieRS;
+import com.megapelis.api.model.dto.response.body.movieserie.FindAllMovieSerieRS;
 import com.megapelis.api.model.enums.APIServiceEnum;
 import com.megapelis.api.model.enums.operation.MovieSerieOperationEnum;
 import com.megapelis.api.util.APICommon;

@@ -1,18 +1,18 @@
-package com.megapelis.api.model.dto.request.response.body.tmdb.movie;
+package com.megapelis.api.model.dto.response.body.tmdb.movie;
 
 import java.io.Serializable;
 
 /**
- * Clase {@link FindAllImagesByIdMovieRQ}
+ * Clase {@link FindByIdMovieRQ}
  * @author sergio.barrios.
  */
-public class FindAllImagesByIdMovieRQ implements Serializable {
+public class FindByIdMovieRQ implements Serializable {
 
     private String idMovie;
 
-    public FindAllImagesByIdMovieRQ(){}
+    public FindByIdMovieRQ(){}
 
-    public FindAllImagesByIdMovieRQ(String idMovie) {
+    public FindByIdMovieRQ(String idMovie) {
         this.idMovie = idMovie;
     }
 

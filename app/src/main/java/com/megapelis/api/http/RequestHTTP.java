@@ -1,9 +1,8 @@
 package com.megapelis.api.http;
 
-import com.megapelis.api.model.dto.request.response.generic.Response;
+import com.megapelis.api.model.dto.response.generic.Response;
 import com.megapelis.api.model.enums.APIStatusEnum;
 import com.megapelis.api.model.http.HTTP;
-import com.megapelis.api.model.http.HTTPMock;
 import com.megapelis.api.util.APICommon;
 import com.megapelis.api.util.APIConstant;
 import com.megapelis.api.util.MegaPelisException;
