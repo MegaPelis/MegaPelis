@@ -9,4 +9,11 @@
     android:background="@color/bg_one"
     tools:context=".app.activity.user.HomeUserActivity">
 
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="293dp"
+        android:background="#FA1111"
+        android:text="TextView" />
 </LinearLayout>

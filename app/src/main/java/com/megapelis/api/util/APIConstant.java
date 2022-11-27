@@ -10,10 +10,14 @@ public class APIConstant {
 
     public static final String STRING_API_GATEWAY_PATH = "https://kfuwtxyz42.execute-api.us-east-1.amazonaws.com/pdn";
     public static final String STRING_API_GATEWAY_PATH_MOVIE_SERIE = "/movie-serie";
+    public static final String STRING_API_GATEWAY_PATH_IMAGE = "/image";
 
     public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.TRUE.booleanValue();
     public static final String STRING_API_MOCK_PATH = null;
-    public static final String STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL_MOVIE = "/movie-serie.findByAllMovie.json";
+    public static final String STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL_MOVIE = "/movie-serie.findAllImage.json";
+    public static final String STRING_API_MOCK_PATH_IMAGE_JSON_FIND_ALL_IMAGE = "/image.findByAllMovie.json";
+
+
 
 
     public static final String STRING_API_HTTP_PROPERTY_CONTENT_TYPE_NAME = "Content-Type";
