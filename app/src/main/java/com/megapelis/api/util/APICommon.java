@@ -87,8 +87,24 @@ public class APICommon {
      * @param <T>
      */
     public static <T> T convertObjectToClass(Object object, Class<T> clazz){
+        return convertObjectToClass(object, clazz, Boolean.FALSE.booleanValue());
+    }
+
+    /**
+     * Metodo que convierte un objeto a clase.
+     * @param object
+     * @param clazz
+     * @param isConvertJson
+     * @return {@link T}
+     * @param <T>
+     */
+    public static <T> T convertObjectToClass(Object object, Class<T> clazz, boolean isConvertJson){
         Gson gson = new Gson();
-        String json = gson.toJson(object);
+        String json;
+        if(isConvertJson)
+            json = gson.toJson(object);
+        else
+            json = object.toString();
         return gson.fromJson(json, clazz);
     }
 
