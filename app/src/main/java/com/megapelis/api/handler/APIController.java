@@ -37,6 +37,7 @@ public abstract class APIController<T> {
         try{
             this.dataFactory = dataFactory;
             this.request = buildRequest(dataFactory.getData());
+            mock.setAdditional(null != dataFactory.getService() ? dataFactory.getService().getName() : null);
             HTTP<T> http = APICommon.buildHTTP(this.operation, this.request, this.dataFactory.getBodyResponse(), this.mock);
             response = requestHTTP.post(http);
         }catch (Exception exception){
