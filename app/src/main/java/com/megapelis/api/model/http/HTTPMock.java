@@ -19,7 +19,7 @@ public class HTTPMock {
     }
 
     public String url(){
-        return url.concat(fileName);
+        return null == url ? fileName : url.concat(fileName);
     }
 
     public String getUrl() {

@@ -10,6 +10,7 @@ import com.megapelis.api.util.MegaPelisException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -45,18 +46,25 @@ public class RequestHTTP<T> {
         HttpURLConnection httpURLConnection;
         String responseString;
         try {
+
             if(null != httpRequest.getHttpMock() &&
                     httpRequest.getHttpMock().isStatus()){
-                httpRequest.setContentType(null);
-                httpRequest.setRequest(null);
-                httpRequest.setUrl(httpRequest.getHttpMock().url());
-                httpRequest.setMethod(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET);
+                InputStream inputStream = new DropboxHTTP(APIConstant.STRING_DROPBOX_TOKEN).read(httpRequest.getHttpMock().url());
+                responseString = read(inputStream);
+            }else {
+
+                if(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET.contains(httpRequest.getMethod())){
+                    httpRequest.setContentType(null);
+                    httpRequest.setRequest(null);
+                    httpRequest.setUrl(httpRequest.getUrl());
+                }
+
+                httpURLConnection  = httpURLConnection(httpRequest);
+                responseString = response(httpRequest, httpURLConnection);
             }
-            httpURLConnection  = httpURLConnection(httpRequest);
-            responseString = response(httpRequest, httpURLConnection);
             response = APICommon.convertObjectToClass(responseString, Response.class);
-            //if(null != response && null != response.getData())
-                //response.setData(APICommon.convertObjectToClass(response.getData(), httpRequest.getResponse()));
+            if(null != response && null != response.getData())
+                response.setData(APICommon.convertObjectToClass(response.getData(), httpRequest.getResponse()));
         } catch (IOException | MegaPelisException exception) {
             APICommon.output(exception);
             response = APICommon.buildResponse(httpRequest.getRequest());
@@ -77,8 +85,16 @@ public class RequestHTTP<T> {
         httpURLConnection.setDoInput(httpRequest.isInput());
         if(null != httpRequest.getContentType())
             httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_CONTENT_TYPE_NAME, httpRequest.getContentType());
-        httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_NAME, httpRequest.getAccept());
-        httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_NAME, httpRequest.getMethod());
+        if(null != httpRequest.getAccept())
+            httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_ACCEPT_NAME, httpRequest.getAccept());
+        if(null != httpRequest.getMethod())
+            httpURLConnection.setRequestProperty(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_NAME, httpRequest.getMethod());
+        else {
+            httpRequest.setMethod((httpRequest.getRequest() == null)
+                    ? APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET
+                    : APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_POST);
+            return httpURLConnection(httpRequest);
+        }
         APICommon.output(httpURLConnection);
         return httpURLConnection;
     }
@@ -105,16 +121,29 @@ public class RequestHTTP<T> {
         // Se procesa respuesta
         int HttpResult = httpURLConnection.getResponseCode();
         if (HttpResult == HttpURLConnection.HTTP_OK) {
-            BufferedReader br = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), APIConstant.STRING_CMM_UTF_8));
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                sb.append(line + "\n");
-            }
-            br.close();
-            return sb.toString();
+            return read(httpURLConnection.getInputStream());
         } else {
             throw new MegaPelisException(APIStatusEnum.ERROR);
         }
+    }
+
+    /**
+     * Metodo para leer un {@link InputStream}
+     * @param inputStream
+     * @return {@link String}
+     * @throws IOException
+     * @throws MegaPelisException
+     */
+    public static String read(InputStream inputStream) throws IOException, MegaPelisException{
+        if(null == inputStream)
+            throw new MegaPelisException(APIStatusEnum.ERROR);
+        BufferedReader br = new BufferedReader(new InputStreamReader(inputStream, APIConstant.STRING_CMM_UTF_8));
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+        while ((line = br.readLine()) != null) {
+            sb.append(line + "\n");
+        }
+        br.close();
+        return sb.toString();
     }
 }
