@@ -3,16 +3,16 @@ package com.megapelis.api.model.dto.request.body.tmdb.movie;
 import java.io.Serializable;
 
 /**
- * Clase {@link FindAllByPopularMovieRQ}
+ * Clase {@link FindAllByPopularMovieTMDBRQ}
  * @author sergio.barrios.
  */
-public class FindAllByPopularMovieRQ implements Serializable {
+public class FindAllByPopularMovieTMDBRQ implements Serializable {
 
     private int page;
 
-    public FindAllByPopularMovieRQ(){}
+    public FindAllByPopularMovieTMDBRQ(){}
 
-    public FindAllByPopularMovieRQ(int page) {
+    public FindAllByPopularMovieTMDBRQ(int page) {
         this.page = page;
     }
 

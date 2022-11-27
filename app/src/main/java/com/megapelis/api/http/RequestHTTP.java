@@ -46,19 +46,17 @@ public class RequestHTTP<T> {
         HttpURLConnection httpURLConnection;
         String responseString;
         try {
-
             if(null != httpRequest.getHttpMock() &&
                     httpRequest.getHttpMock().isStatus()){
-                InputStream inputStream = new DropboxHTTP(APIConstant.STRING_DROPBOX_TOKEN).read(httpRequest.getHttpMock().url());
+                String url = httpRequest.getHttpMock().url();
+                InputStream inputStream = new DropboxHTTP(APIConstant.STRING_DROPBOX_TOKEN).read(url);
                 responseString = read(inputStream);
             }else {
-
                 if(APIConstant.STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET.contains(httpRequest.getMethod())){
                     httpRequest.setContentType(null);
                     httpRequest.setRequest(null);
                     httpRequest.setUrl(httpRequest.getUrl());
                 }
-
                 httpURLConnection  = httpURLConnection(httpRequest);
                 responseString = response(httpRequest, httpURLConnection);
             }
