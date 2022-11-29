@@ -9,6 +9,7 @@ public enum MegaPelisTypeServiceEnum {
     MOVIE("movie"),
     SERIE("serie");
 
+
     private String name;
 
     MegaPelisTypeServiceEnum(String name){
