@@ -17,6 +17,7 @@ public abstract class APIController<T> {
 
     protected RequestHTTP<T> requestHTTP;
     protected HTTPMock mock;
+
     protected Request request;
     protected DataFactory<T> dataFactory;
     protected String operation;

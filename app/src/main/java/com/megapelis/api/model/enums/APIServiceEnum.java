@@ -11,7 +11,7 @@ public enum APIServiceEnum {
     MOVIE_SERIE("MovieSerie"),
     MOVIE_TMDB("MovieTMDB"),
     SERIE_TMDB("SerieTMDB"),
-    IMAGE("Image");
+    IMAGE("images");
 
     private String name;
 

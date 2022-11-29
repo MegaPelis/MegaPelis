@@ -2,6 +2,7 @@ package com.megapelis
 
 import com.megapelis.api.factory.ImageFactory
 import com.megapelis.api.factory.MovieSerieFactory
+import com.megapelis.api.model.dto.request.body.image.FindAllImageRQ
 import com.megapelis.api.model.dto.response.body.image.FindAllImageRS
 import com.megapelis.api.model.dto.response.body.movieserie.FindAllMovieSerieRS
 import com.megapelis.api.model.dto.response.generic.Response
@@ -15,9 +16,13 @@ import org.junit.Assert
 import org.junit.Test
 
 class ImageUnitTest {
+
+
+
     @Test
     fun success() {
-        var dataFactory : DataFactory<FindAllImageRS> = DataFactory(MegaPelisTypeServiceEnum.IMAGE, null, FindAllImageRS::class.java);
+        val findAllImageRQ= FindAllImageRQ()
+        var dataFactory : DataFactory<FindAllImageRS> = DataFactory(null, findAllImageRQ, FindAllImageRS::class.java);
         var response : Response = ImageFactory.handler(dataFactory, ImageOperationEnum.FIND_ALL);
         APICommon.output(response);
         Assert.assertEquals(APIStatusEnum.SUCCESS.code, response.status.code)

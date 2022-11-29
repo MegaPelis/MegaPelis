@@ -1,25 +1,24 @@
 package com.megapelis.api.model.dto.response.body.image;
 
-import com.megapelis.api.model.dto.response.body.movieserie.FindByIdMovieSerieRS;
 
 import java.util.List;
 
 public class FindAllImageRS {
 
-    private List<FindAllImageRS> findAll;
+    private List<FindByIdImageRS> findAll;
 
     public FindAllImageRS() {
     }
 
-    public FindAllImageRS(List<FindAllImageRS> findAll) {
+    public FindAllImageRS(List<FindByIdImageRS> findAll) {
         this.findAll = findAll;
     }
 
-    public List<FindAllImageRS> getFindAll() {
+    public List<FindByIdImageRS> getFindAll() {
         return findAll;
     }
 
-    public void setFindAll(List<FindAllImageRS> findAll) {
+    public void setFindAll(List<FindByIdImageRS> findAll) {
         this.findAll = findAll;
     }
 }

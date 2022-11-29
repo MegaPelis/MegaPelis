@@ -14,9 +14,7 @@ import com.megapelis.api.util.MegaPelisException;
 public class FindAllImageHandler extends APIController<FindAllImageRS> {
 
     public FindAllImageHandler() {
-
-        super(APIConstant.STRING_API_GATEWAY_PATH_IMAGE,
-                APICommon.buildHttpMock(APIConstant.STRING_API_MOCK_PATH_IMAGE_JSON_FIND_ALL_IMAGE));
+                super(APIConstant.STRING_API_GATEWAY_PATH_IMAGE, APICommon.buildHttpMock(APIConstant.STRING_API_MOCK_PATH_IMAGE_JSON_FIND_ALL_IMAGE));
     }
 
     @Override
