@@ -1,4 +1,4 @@
-package com.megapelis.app.activity
+package com.megapelis.api.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
