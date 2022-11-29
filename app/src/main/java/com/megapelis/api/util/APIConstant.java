@@ -38,7 +38,7 @@ public class APIConstant {
     public static final String STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET = "GET";
 
     public static final String STRING_DROPBOX_CLIENT = "dropbox/MegaPelis";
-    public static final String STRING_DROPBOX_TOKEN =  "sl.BT5QhH8PD1r186ZZA-q7h9YGw_xZYuKg5uRFqzew5hjfsPhRVMGrDittPod1kSkvt_hebtHn3eBJxR-Dss4VKZrBwHOTeJJHPekjU1qZbrXm08um1JnTn648EU7kX7MChASIAto";
+    public static final String STRING_DROPBOX_TOKEN =  "sl.BUAYPuYZ0XLi1dp7qSVagDRE0rDOE4evJH_O9_D1ekzWqbhQ3QZJ-7N8OXzdKjTREsK8x-Z-i36LKm6J6Bi5kBvs4HDlKvXL1fKUS5cmtbl1v0BxXLHa__g9G6ctT1UrofsOhvk";
 
     private APIConstant(){}
 }

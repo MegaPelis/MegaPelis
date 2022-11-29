@@ -22,7 +22,7 @@ class ImageUnitTest {
     @Test
     fun success() {
         val findAllImageRQ= FindAllImageRQ()
-        var dataFactory : DataFactory<FindAllImageRS> = DataFactory(null, findAllImageRQ, FindAllImageRS::class.java);
+        var dataFactory : DataFactory<FindAllImageRS> = DataFactory(MegaPelisTypeServiceEnum.IMAGE, findAllImageRQ, FindAllImageRS::class.java);
         var response : Response = ImageFactory.handler(dataFactory, ImageOperationEnum.FIND_ALL);
         APICommon.output(response);
         Assert.assertEquals(APIStatusEnum.SUCCESS.code, response.status.code)

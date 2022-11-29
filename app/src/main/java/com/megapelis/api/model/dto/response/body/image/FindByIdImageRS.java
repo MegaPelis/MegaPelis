@@ -1,19 +1,19 @@
 package com.megapelis.api.model.dto.response.body.image;
 
-public class FindByIdImageRS {
+import java.io.Serializable;
+
+public class FindByIdImageRS implements Serializable {
     private String id;
     private String image;
     private String createdDate;
-    private String lastModifiedDate;
 
     public FindByIdImageRS() {
     }
 
-    public FindByIdImageRS(String id, String image, String createdDate, String lastModifiedDate) {
+    public FindByIdImageRS(String id, String image, String createdDate) {
         this.id = id;
         this.image = image;
         this.createdDate = createdDate;
-        this.lastModifiedDate = lastModifiedDate;
     }
 
     public String getId() {
@@ -38,13 +38,5 @@ public class FindByIdImageRS {
 
     public void setCreatedDate(String createdDate) {
         this.createdDate = createdDate;
-    }
-
-    public String getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(String lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
     }
 }
