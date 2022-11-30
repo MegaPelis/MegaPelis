@@ -11,5 +11,4 @@ class ApiRoutes {
     return  retrofit.getClient(api_url).create(UserRoutes::class.java)
     }
 
-
 }

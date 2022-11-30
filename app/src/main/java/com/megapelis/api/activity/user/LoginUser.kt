@@ -4,17 +4,25 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.Toast
 import com.megapelis.R
+import com.megapelis.api.retrofit.http.ResponseLogin
+import com.megapelis.api.retrofit.http.ResponseUser
+import com.megapelis.api.retrofit.providers.UserProviders
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class LoginUser : AppCompatActivity() {
     var imageViewGoToRegister: ImageView? = null
     var editTextEmail: EditText? = null
     var editTextPass: EditText? = null
     var btnLogin: Button? = null
+    var userProviders = UserProviders()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_user)
@@ -35,7 +43,17 @@ class LoginUser : AppCompatActivity() {
         val email = editTextEmail?.text.toString()
         val pass = editTextPass?.text.toString()
         if(validarFormulario(email, pass)){
-            Toast.makeText(this, "el Formulario es valido", Toast.LENGTH_LONG).show()
+         userProviders.login(email,pass)?.enqueue(object : Callback<ResponseLogin>{
+             override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
+                 Log.d("MainActivity","body: ${response.body()?.token}")
+             }
+
+             override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
+                 Log.d("MainActivity","Todo mal: ${t.message}")
+             }
+
+
+         })
         }else{
             Toast.makeText(this, "El formulario es invalido", Toast.LENGTH_LONG).show()
         }
