@@ -9,7 +9,7 @@ import java.util.Base64;
 import java.util.List;
 
 public class Prueba {
-   public static FindAllImageRS findAllImageRS = new FindAllImageRS();
+   private FindAllImageRS findAllImageRS = new FindAllImageRS();
 
     public Prueba() {
 
@@ -49,11 +49,11 @@ public class Prueba {
         findAllImageRS.setFindAll(idImageRS);
     }
 
-    public static FindAllImageRS getFindAllImageRS() {
+    public  FindAllImageRS getFindAllImageRS() {
         return findAllImageRS;
     }
 
-    public static void setFindAllImageRS(FindAllImageRS findAllImageRS) {
-        Prueba.findAllImageRS = findAllImageRS;
+    public  void setFindAllImageRS(FindAllImageRS findAllImageRS) {
+        this.findAllImageRS = findAllImageRS;
     }
 }
