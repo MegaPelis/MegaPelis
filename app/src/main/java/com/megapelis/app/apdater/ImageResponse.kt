@@ -14,6 +14,7 @@ class ImageResponse {
     companion object {
         fun execute(): FindAllImageRS {
             val findAllImageRQ = FindAllImageRQ()
+
             val findAllImageRS: FindAllImageRS
             val dataFactory: DataFactory<FindAllImageRS> =
                 DataFactory(

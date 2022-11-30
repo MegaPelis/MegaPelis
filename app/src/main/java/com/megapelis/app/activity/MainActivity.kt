@@ -2,25 +2,26 @@ package com.megapelis.app.activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.megapelis.R
-import com.megapelis.api.model.dto.response.body.image.FindAllImageRS
-import com.megapelis.app.Prueba
 import com.megapelis.app.activity.user.HomeUserActivity
 import com.megapelis.app.apdater.ImageResponse
 import kotlinx.android.synthetic.main.activity_main.*
 
-//import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
        setContentView(R.layout.activity_main)
 
-        val prueba = Prueba()
-        val findAllImageRS= prueba.findAllImageRS
+        val policy = ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
+
+        val findAllImageRS = ImageResponse.execute()
 
         Glide
             .with(this@MainActivity)
@@ -76,8 +77,14 @@ class MainActivity : AppCompatActivity() {
             .centerCrop().placeholder(R.drawable.ic_image_home_1)
             .into(iv_view_image_home_10);
 
-        val btn: Button = findViewById(R.id.button2)
-        btn.setOnClickListener{
+        val btn1: Button = findViewById(R.id.button2)
+        btn1.setOnClickListener{
+            val intent = Intent(this,HomeUserActivity::class.java)//Aqui coloco la actividad de pollo
+            startActivity(intent)
+        }
+
+        val btn2: Button = findViewById(R.id.button)
+        btn2.setOnClickListener{
             val intent = Intent(this,HomeUserActivity::class.java)//Aqui coloco la actividad de pollo
             startActivity(intent)
         }
