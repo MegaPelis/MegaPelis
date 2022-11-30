@@ -9,8 +9,10 @@
         <item name="colorSecondary">@color/bg_two</item>
         <item name="colorSecondaryVariant">@color/bg_two</item>
         <item name="colorOnSecondary">@color/c_text_disabled</item>
-        <!-- Status bar color. -->
+        <!-- Menu-->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <!-- Customize your theme here. -->
+        <item name="colorControlNormal">@color/c_text</item>
+        <item name="android:textColorPrimary">@color/c_text</item>
     </style>
+
 </resources>
