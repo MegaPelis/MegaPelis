@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment_cards_movie"
+    android:id="@+id/fragment_cards_serie"
     android:orientation="vertical"
     android:background="@color/bg_one"
-    tools:context=".app.fragment.CardsMovieUserFragment">
+    tools:context=".app.fragment.CardsSerieUserFragment">
     <ScrollView
         android:layout_width="match_parent"
         android:background="@color/bg_one"
@@ -14,7 +14,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/fragment_cards_movie_container">
+            android:id="@+id/fragment_cards_serie_container">
         </androidx.recyclerview.widget.RecyclerView>
     </ScrollView>
 </FrameLayout>

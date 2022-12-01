@@ -16,7 +16,7 @@ import com.megapelis.api.model.enums.operation.MovieSerieOperationEnum
 import com.megapelis.api.model.factory.DataFactory
 import com.megapelis.app.apdater.CardMovieSerieUserAdapter
 
-class CardsMovieUserFragment : Fragment() {
+class CardsSerieUserFragment : Fragment() {
 
     lateinit var containerCards: RecyclerView
     lateinit var cardMovieAdapter: CardMovieSerieUserAdapter
@@ -30,18 +30,18 @@ class CardsMovieUserFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_cards_movie_user, container, false)
+        val view = inflater.inflate(R.layout.fragment_cards_serie_user, container, false)
 
         cardMovieAdapter = CardMovieSerieUserAdapter(context, execute(), R.id.card_serie_image)
 
-        containerCards = view.findViewById(R.id.fragment_cards_movie_container)
+        containerCards = view.findViewById(R.id.fragment_cards_serie_container)
         containerCards.layoutManager = GridLayoutManager(context, 2)
         containerCards.adapter = cardMovieAdapter
         return view
     }
 
     fun execute(): FindAllMovieSerieRS {
-        val dataFactory : DataFactory<FindAllMovieSerieRS> = DataFactory(MegaPelisTypeServiceEnum.MOVIE, null, FindAllMovieSerieRS::class.java)
+        val dataFactory : DataFactory<FindAllMovieSerieRS> = DataFactory(MegaPelisTypeServiceEnum.SERIE, null, FindAllMovieSerieRS::class.java)
         val response : Response =  MovieSerieFactory.handler(dataFactory, MovieSerieOperationEnum.FIND_ALL)
         if(null == response.data) {
             return FindAllMovieSerieRS()
