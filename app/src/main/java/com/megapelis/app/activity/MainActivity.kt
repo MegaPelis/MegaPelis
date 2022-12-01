@@ -8,6 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.megapelis.R
 import com.megapelis.app.activity.user.HomeUserActivity
+import com.megapelis.app.activity.user.LoginUser
+import com.megapelis.app.activity.user.RegisterUser
 import com.megapelis.app.apdater.ImageAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         val findAllImageRS = ImageAdapter.execute()
 
-        if(null != findAllImageRS.findAll && !findAllImageRS.findAll.isEmpty()){
+        if(null != findAllImageRS.findAll && findAllImageRS.findAll.isNotEmpty()){
             Glide
                 .with(this@MainActivity)
                 .load(findAllImageRS.findAll[0].image)
@@ -75,15 +77,14 @@ class MainActivity : AppCompatActivity() {
         }
 
         val btn1: Button = findViewById(R.id.button2)
-        btn1.setBackgroundColor(Color.parseColor("#39008e"))
         btn1.setOnClickListener{
-            val intent = Intent(this,HomeUserActivity::class.java)//Aqui coloco la actividad de pollo
+            val intent = Intent(this,LoginUser::class.java)
             startActivity(intent)
         }
 
         val btn2: Button = findViewById(R.id.button)
         btn2.setOnClickListener{
-            val intent = Intent(this,HomeUserActivity::class.java)//Aqui coloco la actividad de pollo
+            val intent = Intent(this,RegisterUser::class.java)
             startActivity(intent)
         }
    }

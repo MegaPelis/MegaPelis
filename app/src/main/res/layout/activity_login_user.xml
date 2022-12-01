@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".app.activity.user.LoginUser"
+    android:background="@drawable/edit_text_custom">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="60dp"
+            android:fontFamily="@font/primary"
+            android:text="MegaPelis"
+            android:textSize="50sp"
+            android:textColor="@color/c_text"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/primary"
+            android:text="Ingrese correo y contraseña"
+            android:textSize="20sp"
+            android:textColor="@color/c_text" />
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/primary"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:background="@drawable/rounded_button"
+            android:padding="15dp"
+            android:textSize="15sp"
+            android:textColor="@color/bg_one"
+            android:textColorHint="@color/bg_one"/>
+        <EditText
+            android:id="@+id/pass"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/primary"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:textSize="15sp"
+            android:background="@drawable/rounded_button"
+            android:padding="15dp"
+            android:textColor="@color/bg_one"
+            android:textColorHint="@color/bg_one" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿Olvidaste tu Contraseña?"
+            android:textSize="15sp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="right"
+            android:fontFamily="@font/primary"
+            android:textColor="@color/bg_one"/>
+    </LinearLayout>
+    <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      android:layout_gravity="bottom" >
+      <Button
+          android:id="@+id/btn_login"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Iniciar Sesion"
+          android:layout_marginLeft="20dp"
+          android:layout_marginRight="20dp"
+          android:gravity="center"
+          android:textSize="15sp"
+          android:fontFamily="@font/primary"
+          android:background="@drawable/rounded_button"/>
+      <ImageView
+          android:id="@+id/right_img"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:src="@drawable/ic_arrow_right"
+          android:layout_marginTop="10dp" />
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Registrate aqui"
+          android:textSize="15sp"
+          android:layout_marginBottom="15dp"
+          android:gravity="center"
+          android:fontFamily="@font/primary"
+          android:textColor="@color/c_text" />
+      </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
