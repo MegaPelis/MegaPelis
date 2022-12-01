@@ -5,9 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".api.retrofit.model.activity.user.RegisterUser"
-    android:background="@drawable/edit_text_custom"
-    >
+    tools:context=".app.activity.user.RegisterUser"
+    android:background="@drawable/edit_text_custom">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -19,20 +18,16 @@
             android:textSize="50dp"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="60dp"
-            android:fontFamily="@font/font_giahfita"
-            android:textColor="@color/c_text"
-            />
-
+            android:fontFamily="@font/primary"
+            android:textColor="@color/c_text"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Completa el formulario"
             android:layout_marginLeft="25dp"
             android:layout_marginTop="10dp"
-            android:fontFamily="@font/font_rilenda"
-            android:textColor="@color/c_text"
-            />
-
+            android:fontFamily="@font/primary"
+            android:textColor="@color/c_text"/>
         <EditText
             android:id="@+id/edit_text_nombre"
             android:layout_width="match_parent"
@@ -43,8 +38,11 @@
             android:hint="Nombres"
             android:background="@drawable/rounded_button"
             android:padding="10dp"
+            android:fontFamily="@font/primary"
             android:inputType="text"
-            />
+            android:textSize="15sp"
+            android:textColor="@color/bg_one"
+            android:textColorHint="@color/bg_one"/>
         <EditText
             android:id="@+id/edit_text_apellido"
             android:layout_width="match_parent"
@@ -56,8 +54,9 @@
             android:background="@drawable/rounded_button"
             android:padding="10dp"
             android:inputType="text"
-            />
-
+            android:textSize="15sp"
+            android:textColor="@color/bg_one"
+            android:textColorHint="@color/bg_one" />
         <EditText
             android:id="@+id/edit_text_email"
             android:layout_width="match_parent"
@@ -69,8 +68,9 @@
             android:background="@drawable/rounded_button"
             android:padding="10dp"
             android:inputType="textEmailAddress"
-            />
-
+            android:textSize="15sp"
+            android:textColor="@color/bg_one"
+            android:textColorHint="@color/bg_one"/>
         <EditText
             android:id="@+id/edit_text_pass"
             android:layout_width="match_parent"
@@ -82,17 +82,16 @@
             android:background="@drawable/rounded_button"
             android:padding="10dp"
             android:inputType="textPassword"
-            />
+            android:textSize="15sp"
+            android:textColor="@color/bg_one"
+            android:textColorHint="@color/bg_one"/>
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="vertical"
-        android:gravity="center"
-        >
-
+        android:gravity="center">
         <Button
             android:id="@+id/btn_guardar"
             android:layout_width="match_parent"
@@ -100,25 +99,21 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:text="Guardar"
-            android:background="@drawable/rounded_button"
-            />
+            android:fontFamily="@font/primary"
+            android:background="@drawable/rounded_button"/>
         <ImageView
             android:id="@+id/go_View_to_login"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/ic_arrow_left"
-            android:layout_marginTop="10dp"
-            />
-
+            android:layout_marginTop="10dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Volver a Login"
+            android:fontFamily="@font/primary"
             android:layout_marginBottom="15dp"
             android:textSize="15sp"
-            android:textColor="@color/c_text"
-            />
-
+            android:textColor="@color/c_text"/>
     </LinearLayout>
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

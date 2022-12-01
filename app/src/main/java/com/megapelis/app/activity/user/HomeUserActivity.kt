@@ -1,4 +1,4 @@
-package com.megapelis.api.retrofit.model.activity.user
+package com.megapelis.app.activity.user
 
 import android.content.Intent
 import android.os.Bundle

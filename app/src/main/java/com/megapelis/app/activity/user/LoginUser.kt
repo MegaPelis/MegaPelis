@@ -1,4 +1,4 @@
-package com.megapelis.api.retrofit.model.activity.user
+package com.megapelis.app.activity.user
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -48,34 +48,24 @@ class LoginUser : AppCompatActivity() {
         val pass = editTextPass?.text.toString()
         if(validarFormulario(email, pass)){
             var login = Login(email, pass)
-         userProviders.login(login)?.enqueue(object : Callback<ResponseLogin>{
-             override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
-                 if(response.body()?.token != null){
-                     saveUserSession(response.body()?.user.toString())
-                 }else{
-                     Toast.makeText(this@LoginUser, "Password o Contraseña Incorrecta ", Toast.LENGTH_LONG).show()
-                 }
-             }
-
-             override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
-                 Log.d("MainActivity","Todo mal: ${t.message}")
-             }
-
-
-         })
+            userProviders.login(login)?.enqueue(object : Callback<ResponseLogin>{
+                override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
+                    if(response.body()?.token != null){
+                        saveUserSession(response.body()?.user.toString())
+                        val i = Intent(this@LoginUser, HomeUserActivity::class.java)
+                        startActivity(i);
+                    }else{
+                        Toast.makeText(this@LoginUser, "Password o Contraseña Incorrecta ", Toast.LENGTH_LONG).show()
+                    }
+                }
+                override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
+                    Log.d("MainActivity","Todo mal: ${t.message}")
+                }
+            })
         }else{
             Toast.makeText(this, "El formulario es invalido", Toast.LENGTH_LONG).show()
         }
-
-        //Print en Vista
-
-        //Toast.makeText(this, "Password es : ${pass}", Toast.LENGTH_LONG).show()
-        //Console.log()
-        // Log.d("MainActivity","El email es ${email}")
-        // Log.d("MainActivity","El Password es ${pass}")
     }
-
-
 
     fun String.isEmailValid():Boolean{
         return !TextUtils.isEmpty(this) && android.util.Patterns.EMAIL_ADDRESS.matcher(this).matches()
@@ -90,7 +80,6 @@ class LoginUser : AppCompatActivity() {
         }
         return true
     }
-
 
     private fun saveUserSession(data: String){
     val sharedPref = SharedPref(this);

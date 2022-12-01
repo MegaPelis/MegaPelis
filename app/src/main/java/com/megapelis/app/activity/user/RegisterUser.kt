@@ -1,4 +1,4 @@
-package com.megapelis.api.retrofit.model.activity.user
+package com.megapelis.app.activity.user
 
 import android.content.ContentValues.TAG
 import android.content.Intent
@@ -42,8 +42,8 @@ class RegisterUser : AppCompatActivity() {
     }
 
     private  fun goToLogin(){
-    val i = Intent(this, LoginUser::class.java)
-    startActivity(i)
+        val i = Intent(this, LoginUser::class.java)
+        startActivity(i)
     }
 
     private fun registrar(){
@@ -55,9 +55,9 @@ class RegisterUser : AppCompatActivity() {
             var user = User(null,nombre,apellido,email,pass,  "USER_ROLE", null,null );
             userProviders.register(user)?.enqueue(object: Callback<ResponseUser>{
                 override fun onResponse(call: Call<ResponseUser>, response: Response<ResponseUser>) {
-
                     if(response.body()?.uid != null){
                         Toast.makeText(this@RegisterUser, "Usuario Registrado Con Exito", Toast.LENGTH_LONG).show()
+                        goToLogin()
                     }else{
                         Toast.makeText(this@RegisterUser, "Usuario No Registrado", Toast.LENGTH_LONG).show()
                     }
