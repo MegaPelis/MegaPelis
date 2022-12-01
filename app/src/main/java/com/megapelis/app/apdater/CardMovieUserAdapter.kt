@@ -17,10 +17,10 @@ import com.squareup.picasso.Picasso
  * Clase {@link CardMovieSerieAdapter}
  * @author sergio.barrios.
  */
-class CardMovieSerieAdapter(
+class CardMovieUserAdapter(
     var context : Context?,
     val data: FindAllMovieSerieRS, recurso: Int):
-    Adapter<CardMovieSerieAdapter.CardMovieSerieHolder>() {
+    Adapter<CardMovieUserAdapter.CardMovieSerieHolder>() {
 
     class CardMovieSerieHolder(view: View) : RecyclerView.ViewHolder(view){
         var titleMovieSerie: TextView
@@ -40,7 +40,7 @@ class CardMovieSerieAdapter(
     override fun onBindViewHolder(holder: CardMovieSerieHolder, position: Int) {
         var movieSerie: FindByIdMovieSerieRS = data.findAll.get(position);
         holder.titleMovieSerie.setText(movieSerie.name)
-        Picasso.get().load(movieSerie.image).into(holder.imageMovieSerie);
+        //Picasso.get().load(movieSerie.image).into(holder.imageMovieSerie);
     }
 
     override fun getItemCount(): Int {
