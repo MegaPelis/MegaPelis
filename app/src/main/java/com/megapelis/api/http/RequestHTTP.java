@@ -1,5 +1,8 @@
 package com.megapelis.api.http;
 
+import android.os.AsyncTask;
+import android.os.StrictMode;
+
 import com.megapelis.api.model.dto.response.generic.Response;
 import com.megapelis.api.model.enums.APIStatusEnum;
 import com.megapelis.api.model.http.HTTP;
@@ -58,6 +61,8 @@ public class RequestHTTP<T> {
                     httpRequest.setUrl(httpRequest.getUrl());
                 }
                 httpURLConnection  = httpURLConnection(httpRequest);
+                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+                StrictMode.setThreadPolicy(policy);
                 responseString = response(httpRequest, httpURLConnection);
             }
             response = APICommon.convertObjectToClass(responseString, Response.class);
