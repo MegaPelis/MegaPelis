@@ -49,6 +49,8 @@ public class RequestHTTP<T> {
         HttpURLConnection httpURLConnection;
         String responseString;
         try {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
             if(null != httpRequest.getHttpMock() &&
                     httpRequest.getHttpMock().isStatus()){
                 String url = httpRequest.getHttpMock().url();
@@ -61,8 +63,6 @@ public class RequestHTTP<T> {
                     httpRequest.setUrl(httpRequest.getUrl());
                 }
                 httpURLConnection  = httpURLConnection(httpRequest);
-                StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-                StrictMode.setThreadPolicy(policy);
                 responseString = response(httpRequest, httpURLConnection);
             }
             response = APICommon.convertObjectToClass(responseString, Response.class);

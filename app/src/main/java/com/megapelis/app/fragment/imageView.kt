@@ -1,4 +1,4 @@
-package com.megapelis.app.view
+package com.megapelis.app.fragment
 
 import androidx.fragment.app.Fragment
 import com.megapelis.api.factory.ImageFactory

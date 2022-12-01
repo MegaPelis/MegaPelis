@@ -5,17 +5,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.RelativeLayout
 import com.megapelis.R
+import com.megapelis.app.fragment.CardsMovieUserFragment
 
 class MoviesUserActivity : AppCompatActivity() {
 
-    lateinit var loader: RelativeLayout
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        loader = findViewById(R.id.movies_user_loader)
-        loader.visibility = View.VISIBLE
         setContentView(R.layout.activity_movies_user)
-        loader.visibility = View.GONE
     }
 
     override fun onStart(){

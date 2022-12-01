@@ -9,13 +9,11 @@ import com.megapelis.api.model.enums.operation.MegaPelisTypeServiceEnum
 import com.megapelis.api.model.factory.DataFactory
 import com.megapelis.api.util.APICommon
 
-class ImageResponse {
+class ImageAdapter {
 
     companion object {
         fun execute(): FindAllImageRS {
             val findAllImageRQ = FindAllImageRQ()
-
-            val findAllImageRS: FindAllImageRS
             val dataFactory: DataFactory<FindAllImageRS> =
                 DataFactory(
                     MegaPelisTypeServiceEnum.IMAGE,
@@ -23,13 +21,11 @@ class ImageResponse {
                     FindAllImageRS::class.java
                 )
             val response: Response = ImageFactory.handler(dataFactory, ImageOperationEnum.FIND_ALL)
-            APICommon.output(response)
-            findAllImageRS = response.data as FindAllImageRS;
-            return findAllImageRS
+            if(null == response.data){
+                return FindAllImageRS()
+            }else{
+                return response.data as FindAllImageRS
+            }
         }
     }
-
-
-
-
 }

@@ -8,6 +8,10 @@
     <string name="card_txt_serie_title">Series</string>
     <string name="card_txt_movie_serie_title">Avengers</string>
     <string name="card_txt_movie_serie_points">100%</string>
+
+    <string name="view_start_txt_sign_in">Registrarse</string>
+    <string name="view_start_txt_login_in">Iniciar Sesión</string>
+    <string name="view_start_txt_image_description">Series</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

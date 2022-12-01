@@ -7,12 +7,12 @@
     android:id="@+id/series_user"
     android:orientation="vertical"
     android:background="@color/bg_one"
-    tools:context=".app.activity.user.SeriesUserActivity">
+    tools:context=".app.activity.user.MoviesUserActivity">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/series_user_view"
+    <fragment android:name="com.megapelis.app.fragment.CardsSerieUserFragment"
+        android:id="@+id/series_user_fragment_cards"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:background="@color/bg_one"
-        android:layout_height="wrap_content">
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_height="wrap_content"
+        tools:layout="@layout/fragment_cards_serie_user" />
 </LinearLayout>
