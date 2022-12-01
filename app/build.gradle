@@ -1,7 +1,6 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-}
+apply plugin:'com.android.application'
+apply plugin:'kotlin-android'
+apply plugin:'kotlin-android-extensions'
 
 android {
     namespace 'com.megapelis'
@@ -42,6 +41,9 @@ dependencies {
     implementation 'com.google.android.material:material:1.7.0'
 
     implementation 'com.dropbox.core:dropbox-core-sdk:5.4.4'
+
+    implementation 'com.github.bumptech.glide:glide:4.14.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'

@@ -7,7 +7,9 @@ package com.megapelis.api.model.enums.operation;
 public enum MegaPelisTypeServiceEnum {
 
     MOVIE("movie"),
-    SERIE("serie");
+    SERIE("serie"),
+    IMAGE("image");
+
 
     private String name;
 

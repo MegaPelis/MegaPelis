@@ -7,6 +7,7 @@ public class FindAllImageRQ {
     private int page;
 
     public FindAllImageRQ() {
+        this.page=1;
     }
 
     public FindAllImageRQ(int page) {
