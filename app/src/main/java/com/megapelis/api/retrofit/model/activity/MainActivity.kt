@@ -1,12 +1,12 @@
-package com.megapelis.api.activity.user
+package com.megapelis.api.retrofit.model.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.megapelis.R
 
-class HomeUserActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_user)
+        setContentView(R.layout.activity_main)
     }
 }

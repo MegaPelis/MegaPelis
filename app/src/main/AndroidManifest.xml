@@ -15,14 +15,14 @@
         android:usesCleartextTraffic="true"
         >
         <activity
-            android:name=".api.activity.user.RegisterUser"
+            android:name=".api.retrofit.model.activity.user.RegisterUser"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".api.activity.user.LoginUser"
+            android:name=".api.retrofit.model.activity.user.LoginUser"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,14 +33,14 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".api.activity.user.HomeUserActivity"
+            android:name=".api.retrofit.model.activity.user.HomeUserActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".api.activity.MainActivity"
+            android:name=".api.retrofit.model.activity.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

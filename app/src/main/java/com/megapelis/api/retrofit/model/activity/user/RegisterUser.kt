@@ -1,4 +1,4 @@
-package com.megapelis.api.activity.user
+package com.megapelis.api.retrofit.model.activity.user
 
 import android.content.ContentValues.TAG
 import android.content.Intent

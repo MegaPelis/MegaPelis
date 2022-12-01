@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".api.activity.user.RegisterUser"
+    tools:context=".api.retrofit.model.activity.user.RegisterUser"
     android:background="@drawable/edit_text_custom"
     >
     <LinearLayout
