@@ -3,6 +3,7 @@ package com.megapelis.api.retrofit.providers
 import com.megapelis.api.retrofit.api.ApiRoutes
 import com.megapelis.api.retrofit.http.ResponseLogin
 import com.megapelis.api.retrofit.http.ResponseUser
+import com.megapelis.api.retrofit.model.Login
 import com.megapelis.api.retrofit.model.User
 import com.megapelis.api.retrofit.routes.UserRoutes
 import retrofit2.Call
@@ -19,8 +20,8 @@ class UserProviders {
         return userRoutes?.register(user);
     }
 
-    fun login(email: String, pass: String): Call<ResponseLogin>?{
-        return userRoutes?.login(email,pass);
+    fun login(login: Login): Call<ResponseLogin>?{
+        return userRoutes?.login(login);
     }
 
 }

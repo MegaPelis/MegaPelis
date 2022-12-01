@@ -12,6 +12,7 @@ import android.widget.Toast
 import com.megapelis.R
 import com.megapelis.api.retrofit.http.ResponseLogin
 import com.megapelis.api.retrofit.http.ResponseUser
+import com.megapelis.api.retrofit.model.Login
 import com.megapelis.api.retrofit.providers.UserProviders
 import retrofit2.Call
 import retrofit2.Callback
@@ -43,7 +44,8 @@ class LoginUser : AppCompatActivity() {
         val email = editTextEmail?.text.toString()
         val pass = editTextPass?.text.toString()
         if(validarFormulario(email, pass)){
-         userProviders.login(email,pass)?.enqueue(object : Callback<ResponseLogin>{
+            var login = Login(email, pass)
+         userProviders.login(login)?.enqueue(object : Callback<ResponseLogin>{
              override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
                  Log.d("MainActivity","body: ${response.body()?.token}")
              }
