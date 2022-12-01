@@ -19,7 +19,7 @@ import org.junit.Test
 class MovieSerieUnitTest {
     @Test
     fun success() {
-        var dataFactory : DataFactory<FindAllMovieSerieRS> = DataFactory(MegaPelisTypeServiceEnum.MOVIE, null, FindAllMovieSerieRS::class.java);
+        var dataFactory : DataFactory<FindAllMovieSerieRS> = DataFactory(MegaPelisTypeServiceEnum.MOVIE, 1, FindAllMovieSerieRS::class.java);
         var response : Response = MovieSerieFactory.handler(dataFactory, MovieSerieOperationEnum.FIND_ALL);
         APICommon.output(response);
         Assert.assertEquals(APIStatusEnum.SUCCESS.code, response.status.code)
