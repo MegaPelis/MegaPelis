@@ -13,9 +13,8 @@ import com.megapelis.api.util.MegaPelisException;
 public class FindAllMovieSerieHandler extends APIController<FindAllMovieSerieRS> {
 
     public FindAllMovieSerieHandler() {
-
         super(APIConstant.STRING_API_GATEWAY_PATH_MOVIE_SERIE,
-                APICommon.buildHttpMock(APIConstant.STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL_MOVIE));
+                APICommon.buildHttpMock(APIConstant.STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL));
     }
 
     @Override

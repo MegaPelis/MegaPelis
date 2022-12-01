@@ -5,6 +5,7 @@ import android.os.Build;
 import com.google.gson.Gson;
 import com.megapelis.api.model.dto.request.generic.Request;
 import com.megapelis.api.model.dto.request.generic.RequestProperty;
+import com.megapelis.api.model.dto.response.body.movieserie.FindAllMovieSerieRS;
 import com.megapelis.api.model.dto.response.generic.Response;
 import com.megapelis.api.model.dto.response.generic.ResponseStatus;
 import com.megapelis.api.model.enums.APIStatusEnum;
@@ -87,8 +88,24 @@ public class APICommon {
      * @param <T>
      */
     public static <T> T convertObjectToClass(Object object, Class<T> clazz){
+        return convertObjectToClass(object, clazz, Boolean.FALSE.booleanValue());
+    }
+
+    /**
+     * Metodo que convierte un objeto a clase.
+     * @param object
+     * @param clazz
+     * @param isConvertJson
+     * @return {@link T}
+     * @param <T>
+     */
+    public static <T> T convertObjectToClass(Object object, Class<T> clazz, boolean isConvertJson){
         Gson gson = new Gson();
-        String json = gson.toJson(object);
+        String json;
+        if(isConvertJson)
+            json = gson.toJson(object);
+        else
+            json = object.toString();
         return gson.fromJson(json, clazz);
     }
 
@@ -98,7 +115,7 @@ public class APICommon {
      */
     public static void output(Object object){
         if(object instanceof Response || object instanceof Request ||
-                object instanceof DataFactory)
+                object instanceof DataFactory || object instanceof FindAllMovieSerieRS)
             System.out.println(getStringJSON(object));
         else
             System.out.println(object);

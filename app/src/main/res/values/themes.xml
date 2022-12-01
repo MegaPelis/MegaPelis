@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.MegaPelis" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/bg_one</item>
+        <item name="colorPrimaryVariant">@color/bg_one</item>
+        <item name="colorOnPrimary">@color/c_text</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/bg_two</item>
+        <item name="colorSecondaryVariant">@color/bg_two</item>
+        <item name="colorOnSecondary">@color/c_text_disabled</item>
+        <!-- Menu-->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="colorControlNormal">@color/c_text</item>
+        <item name="android:textColorPrimary">@color/c_text</item>
+    </style>
+    <!-- Tab -->
+    <style name="Theme.MegaPelis.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/bg_two</item>
+        <item name="tabSelectedTextColor">@color/c_text</item>
+        <item name="tabTextColor">@color/c_text</item>
+        <item name="tabIndicatorColor">@color/c_text</item>
+    </style>
+    <style name="Theme.MegaPelis.Button" parent="@android:style/Widget.Button">
+        <item name="android:background">@color/bg_two</item>
+    </style>
+
+</resources>

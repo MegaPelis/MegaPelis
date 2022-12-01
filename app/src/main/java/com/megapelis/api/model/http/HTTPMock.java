@@ -7,6 +7,7 @@ public class HTTPMock {
     private String url;
     private String fileName;
     private boolean status;
+    private String additional;
 
     public HTTPMock(String fileName) {
        this(APIConstant.STRING_API_MOCK_PATH, fileName);
@@ -19,7 +20,13 @@ public class HTTPMock {
     }
 
     public String url(){
-        return url.concat(fileName);
+        String buildUrl = null == url ? fileName : url.concat(fileName);
+        boolean isReplace = buildUrl.contains(APIConstant.STRING_CMM_REPLACE);
+        if(!isReplace)
+            return buildUrl;
+        if(null == additional)
+            additional = "";
+        return buildUrl.replaceAll(APIConstant.STRING_CMM_REPLACE, additional);
     }
 
     public String getUrl() {
@@ -40,5 +47,13 @@ public class HTTPMock {
 
     public boolean isStatus() {
         return status;
+    }
+
+    public String getAdditional() {
+        return additional;
+    }
+
+    public void setAdditional(String additional) {
+        this.additional = additional;
     }
 }
