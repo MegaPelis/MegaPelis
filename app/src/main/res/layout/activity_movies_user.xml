@@ -9,12 +9,6 @@
     android:background="@color/bg_one"
     tools:context=".app.activity.user.MoviesUserActivity">
 
-    <fragment android:id="@+id/movies_user_loader"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:layout="@layout/layout_loader" />
-
     <fragment android:name="com.megapelis.app.fragment.CardsMovieUserFragment"
         android:id="@+id/movies_user_fragment_cards"
         android:layout_weight="1"

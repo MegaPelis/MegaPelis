@@ -21,5 +21,8 @@
         <item name="tabTextColor">@color/c_text</item>
         <item name="tabIndicatorColor">@color/c_text</item>
     </style>
+    <style name="Theme.MegaPelis.Button" parent="@android:style/Widget.Button">
+        <item name="android:background">@color/bg_two</item>
+    </style>
 
 </resources>
