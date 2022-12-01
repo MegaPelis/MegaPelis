@@ -4,9 +4,10 @@
     <color name="bg_one_rgba">#54000000</color>
     <color name="bg_two">#3D0000</color>
     <color name="bg_three">#950101</color>
-    <color name="bg_four">#FF0000</color>
+    <color name="bg_four">#8FFF0000</color>
     <color name="bg_green">#A84CAF50</color>
     <color name="c_text">#FFFFFF</color>
     <color name="c_text_disabled">#F5F5F5</color>
     <color name="c_text_h1">@color/bg_four</color>
+    <color name="black">#A4000000</color>
 </resources>
