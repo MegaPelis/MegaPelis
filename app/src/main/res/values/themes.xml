@@ -14,5 +14,12 @@
         <item name="colorControlNormal">@color/c_text</item>
         <item name="android:textColorPrimary">@color/c_text</item>
     </style>
+    <!-- Tab -->
+    <style name="Theme.MegaPelis.TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="android:background">@color/bg_two</item>
+        <item name="tabSelectedTextColor">@color/c_text</item>
+        <item name="tabTextColor">@color/c_text</item>
+        <item name="tabIndicatorColor">@color/c_text</item>
+    </style>
 
 </resources>

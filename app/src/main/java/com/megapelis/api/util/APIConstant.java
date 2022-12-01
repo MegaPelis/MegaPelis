@@ -13,7 +13,7 @@ public class APIConstant {
     public static final String STRING_API_GATEWAY_PATH_MOVIE_SERIE = "/movie-serie";
     public static final String STRING_API_GATEWAY_PATH_MOVIE = "/movie";
 
-    public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.TRUE.booleanValue();
+    public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.FALSE.booleanValue();
     public static final String STRING_API_MOCK_PATH = null;
 
     public static final String STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL = "/movie-serie."+STRING_CMM_REPLACE+".findByAll.json";

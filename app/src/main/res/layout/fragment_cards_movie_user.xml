@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".app.view.CardMovieSerieView"
-    android:orientation="vertical">
+    android:id="@+id/fragment_cards_movie"
+    android:orientation="vertical"
+    android:background="@color/bg_one"
+    tools:context=".app.fragment.CardsMovieUserFragment">
 
     <ScrollView
         android:layout_width="match_parent"
+        android:background="@color/bg_one"
         android:layout_height="wrap_content">
-
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/container_card_serie_image">
+            android:id="@+id/fragment_cards_movie_container">
         </androidx.recyclerview.widget.RecyclerView>
-
     </ScrollView>
-</LinearLayout>
+</FrameLayout>
