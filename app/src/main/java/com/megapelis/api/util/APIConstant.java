@@ -14,7 +14,7 @@ public class APIConstant {
     public static final String STRING_API_GATEWAY_PATH_IMAGE = "/image";
     public static final String STRING_API_GATEWAY_PATH_MOVIE = "/movie";
 
-    public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.TRUE.booleanValue();
+    public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.FALSE.booleanValue();
     public static final String STRING_API_MOCK_PATH = null;
 
     public static final String STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL = "/movie-serie."+STRING_CMM_REPLACE+".findByAll.json";
@@ -42,6 +42,8 @@ public class APIConstant {
 
     public static final String STRING_SHARED_PREFERENCES_NAME = "megapelis";
     public static final String STRING_SHARED_PREFERENCES_DATA_IMAGE_FIND_ALL = "image/findAll";
+    public static final String STRING_SHARED_PREFERENCES_DATA_MOVIE_FIND_ALL = "movie/findAll";
+    public static final String STRING_SHARED_PREFERENCES_DATA_SERIE_FIND_ALL = "serie/findAll";
 
     private APIConstant(){}
 }

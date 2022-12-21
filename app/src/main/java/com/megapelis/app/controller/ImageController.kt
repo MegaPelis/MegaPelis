@@ -15,12 +15,11 @@ class ImageController(
     var sharedPreferences : SharedPreferences) {
 
     fun findAll() : FindAllImageRS {
-        var response: Response
         val responseCache = sharedPreferences.getString(APIConstant.STRING_SHARED_PREFERENCES_DATA_IMAGE_FIND_ALL, null)
         val data : FindAllImageRS
         if(!APICommon.isValidString(responseCache)){
             val sharedPreferencesEdit : SharedPreferences.Editor = sharedPreferences.edit()
-            response = ImageFactory.handler(
+            var response: Response = ImageFactory.handler(
                 DataFactory(
                     MegaPelisTypeServiceEnum.IMAGE,
                     FindAllImageRQ(),
@@ -36,7 +35,7 @@ class ImageController(
                 sharedPreferencesEdit.commit()
             }
         }else {
-             data = APICommon.convertObjectToClass(responseCache, FindAllImageRS::class.java)
+            data = APICommon.convertObjectToClass(responseCache, FindAllImageRS::class.java)
         }
         return data
     }
