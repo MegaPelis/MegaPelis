@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_one"
+    android:orientation="vertical"
+    android:id="@+id/visualize_movie"
+    tools:context=".app.activity.user.VisualizeMovieActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/visualize_movie_container_image_post"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/visualize_movie_image_post"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:srcCompat="@drawable/movie">
+            </ImageView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/visualize_movie_container_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/visualize_movie_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/primary"
+                android:text="@string/card_txt_movie_serie_title"
+                android:textColor="@color/c_text_h1"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+            <TextView
+                android:id="@+id/visualize_movie_description"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/primary"
+                android:text="@string/card_txt_movie_serie_description"
+                android:textColor="@color/c_text"
+                android:textSize="18sp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/visualize_movie_container_gender"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:id="@+id/visualize_movie_gender"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/primary"
+                android:text="@string/card_txt_movie_serie_title_gender"
+                android:textColor="@color/c_text_h1"
+                android:textSize="30sp"
+                tools:ignore="TextContrastCheck" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
