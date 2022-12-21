@@ -17,6 +17,7 @@ import com.megapelis.api.retrofit.model.Login
 import com.megapelis.api.retrofit.model.User
 import com.megapelis.api.retrofit.providers.UserProviders
 import com.megapelis.api.retrofit.utlis.SharedPref
+import com.megapelis.api.util.APIConstant
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -47,21 +48,26 @@ class LoginUser : AppCompatActivity() {
         val email = editTextEmail?.text.toString()
         val pass = editTextPass?.text.toString()
         if(validarFormulario(email, pass)){
-            var login = Login(email, pass)
-            userProviders.login(login)?.enqueue(object : Callback<ResponseLogin>{
-                override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
-                    if(response.body()?.token != null){
-                        saveUserSession(response.body()?.user.toString())
-                        val i = Intent(this@LoginUser, HomeUserActivity::class.java)
-                        startActivity(i);
-                    }else{
-                        Toast.makeText(this@LoginUser, "Password o Contraseña Incorrecta ", Toast.LENGTH_LONG).show()
+            if(APIConstant.BOOLEAN_API_MOCK_STATUS){
+                val i = Intent(this@LoginUser, HomeUserActivity::class.java)
+                startActivity(i);
+            }else{
+                var login = Login(email, pass)
+                userProviders.login(login)?.enqueue(object : Callback<ResponseLogin>{
+                    override fun onResponse(call: Call<ResponseLogin>, response: Response<ResponseLogin>) {
+                        if(response.body()?.token != null){
+                            saveUserSession(response.body()?.user.toString())
+                            val i = Intent(this@LoginUser, HomeUserActivity::class.java)
+                            startActivity(i);
+                        }else{
+                            Toast.makeText(this@LoginUser, "Password o Contraseña Incorrecta ", Toast.LENGTH_LONG).show()
+                        }
                     }
-                }
-                override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
-                    Log.d("MainActivity","Todo mal: ${t.message}")
-                }
-            })
+                    override fun onFailure(call: Call<ResponseLogin>, t: Throwable) {
+                        Log.d("MainActivity","Todo mal: ${t.message}")
+                    }
+                })
+            }
         }else{
             Toast.makeText(this, "El formulario es invalido", Toast.LENGTH_LONG).show()
         }
