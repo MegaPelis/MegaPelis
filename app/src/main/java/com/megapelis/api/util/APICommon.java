@@ -3,6 +3,7 @@ package com.megapelis.api.util;
 import android.os.Build;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.megapelis.api.model.dto.request.generic.Request;
 import com.megapelis.api.model.dto.request.generic.RequestProperty;
 import com.megapelis.api.model.dto.response.body.movieserie.FindAllMovieSerieRS;
@@ -76,7 +77,7 @@ public class APICommon {
      * @return {@link  String}
      */
     public static String getStringJSON(Object object){
-        Gson gson = new Gson();
+        Gson gson = new GsonBuilder().setLenient().create();
         return gson.toJson(object);
     }
 
@@ -100,6 +101,8 @@ public class APICommon {
      * @param <T>
      */
     public static <T> T convertObjectToClass(Object object, Class<T> clazz, boolean isConvertJson){
+        if(null == object || null == clazz)
+            return null;
         Gson gson = new Gson();
         String json;
         if(isConvertJson)

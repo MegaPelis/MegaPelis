@@ -1,8 +1,6 @@
 package com.megapelis.api.model.dto.response.body.image;
 
-import java.io.Serializable;
-
-public class FindByIdImageRS implements Serializable {
+public class FindByIdImageRS {
     private String id;
     private String image;
     private String createdDate;

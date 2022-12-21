@@ -1,5 +1,7 @@
 package com.megapelis.app.fragment
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -14,7 +16,9 @@ import com.megapelis.api.model.dto.response.generic.Response
 import com.megapelis.api.model.enums.operation.MegaPelisTypeServiceEnum
 import com.megapelis.api.model.enums.operation.MovieSerieOperationEnum
 import com.megapelis.api.model.factory.DataFactory
+import com.megapelis.api.util.APIConstant
 import com.megapelis.app.apdater.CardMovieSerieUserAdapter
+import com.megapelis.app.controller.MovieSerieController
 
 class CardsSerieUserFragment : Fragment() {
 
@@ -41,12 +45,12 @@ class CardsSerieUserFragment : Fragment() {
     }
 
     fun execute(): FindAllMovieSerieRS {
-        val dataFactory : DataFactory<FindAllMovieSerieRS> = DataFactory(MegaPelisTypeServiceEnum.SERIE, null, FindAllMovieSerieRS::class.java)
-        val response : Response =  MovieSerieFactory.handler(dataFactory, MovieSerieOperationEnum.FIND_ALL)
-        if(null == response.data) {
+        if(this.activity == null){
             return FindAllMovieSerieRS()
-        }else{
-            return response.data as FindAllMovieSerieRS
         }
+        val sharedPreferences : SharedPreferences =  this.requireActivity()
+            .getSharedPreferences(APIConstant.STRING_SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+        val controller : MovieSerieController = MovieSerieController(sharedPreferences, MegaPelisTypeServiceEnum.SERIE)
+        return controller.findAll()
     }
 }
