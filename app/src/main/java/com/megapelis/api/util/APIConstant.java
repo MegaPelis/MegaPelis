@@ -14,7 +14,7 @@ public class APIConstant {
     public static final String STRING_API_GATEWAY_PATH_IMAGE = "/image";
     public static final String STRING_API_GATEWAY_PATH_MOVIE = "/movie";
 
-    public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.FALSE.booleanValue();
+    public static final boolean BOOLEAN_API_MOCK_STATUS = Boolean.TRUE.booleanValue();
     public static final String STRING_API_MOCK_PATH = null;
 
     public static final String STRING_API_MOCK_PATH_MOVIE_SERIE_JSON_FIND_ALL = "/movie-serie."+STRING_CMM_REPLACE+".findByAll.json";
@@ -38,7 +38,10 @@ public class APIConstant {
     public static final String STRING_API_HTTP_PROPERTY_METHOD_VALUE_GET = "GET";
 
     public static final String STRING_DROPBOX_CLIENT = "dropbox/MegaPelis";
-    public static final String STRING_DROPBOX_TOKEN =  "sl.BUExl2VmACelRAC7sLTxFnbtKoikeemhSVLU9lILyaTMzjimbEmAOqglP16q2WUp8k09WBBxsEjmJeiNj4Mvd52jhDauAlcGu9rfdwv7sIEKpd0mjTEwCFpbT5a6BarsSnaLmHc";
+    public static final String STRING_DROPBOX_TOKEN =  "sl.BVVOk-09cfpbkLFH_BZ2s6fwZ_LiQeepDg7NR0TjJLLUKt5yAXcAcJUuPL2juy4U8zpjKj-79x0ccIUomayZ6ToOfh77odahlKvFXDuNrvJMNvhejnfFOBMPL8MQKNfbUwHYxvk";
+
+    public static final String STRING_SHARED_PREFERENCES_NAME = "megapelis";
+    public static final String STRING_SHARED_PREFERENCES_DATA_IMAGE_FIND_ALL = "image/findAll";
 
     private APIConstant(){}
 }

@@ -1,18 +1,18 @@
 package com.megapelis.app.activity
 
+import android.content.Context
 import android.content.Intent
-import android.graphics.Color
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.megapelis.R
-import com.megapelis.app.activity.user.HomeUserActivity
+import com.megapelis.api.util.APIConstant
 import com.megapelis.app.activity.user.LoginUser
 import com.megapelis.app.activity.user.RegisterUser
 import com.megapelis.app.apdater.ImageAdapter
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,8 +20,38 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val findAllImageRS = ImageAdapter.execute()
+        loadImage()
+        loadButton()
+   }
 
+    override fun onStart(){
+        super.onStart();
+    }
+
+    override fun onResume() {
+        super.onResume()
+    }
+
+    override fun onPause() {
+        super.onPause()
+    }
+
+    override fun onStop() {
+        super.onStop()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+    }
+
+    private fun loadImage(){
+        val sharedPreferences : SharedPreferences = getSharedPreferences(APIConstant.STRING_SHARED_PREFERENCES_NAME, Context.MODE_PRIVATE)
+        val imageAdapter : ImageAdapter = ImageAdapter(sharedPreferences)
+        val findAllImageRS = imageAdapter.execute()
         if(null != findAllImageRS.findAll && findAllImageRS.findAll.isNotEmpty()){
             Glide
                 .with(this@MainActivity)
@@ -75,41 +105,19 @@ class MainActivity : AppCompatActivity() {
                 .centerCrop().placeholder(R.drawable.serie_04)
                 .into(iv_view_image_home_10);
         }
+    }
 
-        val btn1: Button = findViewById(R.id.button2)
-        btn1.setOnClickListener{
-            val intent = Intent(this,LoginUser::class.java)
+    private fun loadButton(){
+        val buttonLogin: Button = findViewById(R.id.button2)
+        buttonLogin.setOnClickListener{
+            val intent = Intent(this, LoginUser::class.java)
             startActivity(intent)
         }
 
-        val btn2: Button = findViewById(R.id.button)
-        btn2.setOnClickListener{
-            val intent = Intent(this,RegisterUser::class.java)
+        val buttonRegister: Button = findViewById(R.id.button)
+        buttonRegister.setOnClickListener{
+            val intent = Intent(this, RegisterUser::class.java)
             startActivity(intent)
         }
-   }
-
-    override fun onStart(){
-        super.onStart();
-    }
-
-    override fun onResume() {
-        super.onResume()
-    }
-
-    override fun onPause() {
-        super.onPause()
-    }
-
-    override fun onStop() {
-        super.onStop()
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 }
